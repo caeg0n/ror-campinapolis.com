@@ -1,0 +1,8 @@
+<%= simple_form_for @admin_categoria, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.error_notification %>
+  <%= f.association :admin_super_categoria, value_method: :id, label_method: :descricao %>
+  <%= f.input :nome %>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_categorias_path, :class => 'btn btn-default' %>
+<% end %>

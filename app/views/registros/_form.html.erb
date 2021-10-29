@@ -1,0 +1,31 @@
+<!-- <form novalidate=true class="form-login form-wrapper form-medium" role="form" method="post" action="/registros" id="new_registro"> -->
+    <%= simple_form_for(@registro, html: {class: 'form-login form-wrapper form-medium'}) do |f| %>
+    <h3 class="title-divider">
+      <span>Assinar</span>
+      <small>Envie suas informações e em breve retornaremos.</small>
+    </h3>
+    <% flash.each do |key, value| %>
+    <div class="<%= flash_message(key) %>">
+      <%= value %>
+    </div>
+  <% end %>
+  <%= f.error_notification %>
+    <h5>
+      Plano
+    </h5>
+    <select class="form-control" name="registro[admin_plano_id]">
+    <% Admin::Plano.all.each do |plano| %>
+      <option><%= plano.nome %></option>
+    <% end %>
+    </select>
+    <h5>
+      Informações Pessoais
+    </h5>
+    <%= f.input :nome,placeholder:"nome",label:false %> 
+    <%= f.input :empresa,placeholder:"nome da empresa",label:false %> 
+    <%= f.input :endereco,placeholder:"endereço",label:false %> 
+    <%= f.input :telefone,placeholder:"telefone",label:false,:input_html => {:style => 'width: 150px'} %> 
+    <%= f.input :mail,placeholder:"e-mail",label:false,:input_html => {:style => 'width: 250px'} %> 
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %> 
+    <button class="btn btn-primary" type="submit">Enviar</button>
+<% end %>

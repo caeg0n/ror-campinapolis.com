@@ -1,0 +1,24 @@
+<div id="content">
+  <div class="container">
+    <h2 class="title-divider">
+      <span>Nossos <span class="de-em">Clientes</span></span>
+      <small>Assine já e promova seu negocio!</small>
+    </h2>
+    <ul class="nav nav-tabs" data-js="quicksand" data-quicksand-trigger="li >
+      a" data-quicksand-target=".customers">
+      <!-- <li class><a href="#" data-quicksand-fid="all">Todos os Clientes</a></li> -->
+      <% if defined?(@categorias) %>
+        <% if @categorias.count > 0 %>
+          <% @categorias.each do |categoria| %>
+            <% if categoria.id == @id %>
+              <li class="active" id="li_categoria_active"><a href="#" data-quicksand-fid="type-<%= categoria.nome.downcase %>" id="a_categoria_active"><%= categoria.nome.titleize %></a></li>
+            <% else %>
+              <li class><a href="#" data-quicksand-fid="type-<%= categoria.nome.downcase %>"><%= categoria.nome.titleize %></a></li>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+    <%= render partial: "clientes" %>
+  </div>
+</div>

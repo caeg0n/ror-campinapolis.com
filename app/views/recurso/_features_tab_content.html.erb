@@ -1,0 +1,12 @@
+<% recursos.each do |recurso| %>
+<% active = "active" if recurso.id == id %>
+<div class="feature tab-pane <%= active %> col-sm-12 col-md-12" id="tab<%= recurso.id %>">
+  <img src="<%= recurso.img %>" alt="" class="img-responsive" />
+  <h3 class="title visible-phone">
+    <%= recurso.titulo.titleize %>
+  </h3>
+  <!--only show on mobile when tabs are open-->
+  <p><%= recurso.complete_desc.titleize %></p>
+  <p></p>
+</div>
+<% end %>

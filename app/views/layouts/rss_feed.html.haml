@@ -1,0 +1,22 @@
+!!! 5
+%html
+  %head
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    %meta{:"http-equiv" => "Content-Type", :content=>"text/html;", :charset=>"UTF-8"}
+    %meta{:name=>"viewport", :content=>"width=device-width", :"initial-scale"=>"1.0"}
+    %meta{:name=>"description", :content=>"Site: #{@cliente.url}"}
+    %meta{:name=>"author", :content=>"Campinapolis.com"}
+    %link{:href=>"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css",:rel=>"stylesheet"}
+    %link{:href=>"https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css",:rel=>"stylesheet"}
+    %link{:href=>"https://fonts.googleapis.com/css?family=Open+Sans:400,700,300", :rel=>'stylesheet', :type=>'text/css'}
+    %link{:href=>'https://fonts.googleapis.com/css?family=Rambla', :rel=>'stylesheet', :type=>'text/css'}
+    %link{:href=>'https://fonts.googleapis.com/css?family=Calligraffitti', :rel=>'stylesheet', :type=>'text/css'}
+    %link{:href=>"#{root_path + 'css/custom-style.css'}", :rel=>"stylesheet"}
+    %link{:href=>"#{root_path + 'css/theme-style.min.css'}", :rel=>"stylesheet"}
+    %title= @cliente.empresa.gsub(/\w+/, &:capitalize).gsub(' E ',' e ').gsub(' De ',' de ').gsub('úJ','új').gsub('ôN','ôn').gsub('çO','ço').gsub('ÁR','ár') 
+    -#@cliente.endereco.gsub(/\w+/, &:capitalize).gsub('sÉ','sé').gsub(' E ',' e ').gsub(' De ',' de ').gsub('úJ','új').gsub('ôN','ôn').gsub('çO','ço')
+  %body
+    %div{:class=>"container"}
+      = yield

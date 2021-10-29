@@ -1,0 +1,11 @@
+<%= simple_form_for @admin_plano, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= bootstrap_flash %>
+  <%= f.error_notification %>
+  <%= f.input :nome %>
+  <%= f.input :valor %>
+
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_planos_path, :class => 'btn btn-default' %>
+<% end %>

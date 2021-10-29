@@ -1,0 +1,50 @@
+!!! 5
+%html
+  %head
+    = render partial: 'layouts/head'
+  - case controller_name
+    - when "principal"
+      - classe = "page page-index"
+    - when "categorias"
+      - classe = "page page-customers"
+    - when "sobre"
+      - classe = "page page-about-extended"
+    - when "plano"
+      - classe = "page page-pricing"
+    - when "contato"
+      - classe = "page page-contact"
+    - when "login"
+      - classe = "page page-login"
+    - when "error"
+      - classe = "page page-404 page-centred"
+  %body{:class=>classe}
+    %a{:href=>"#content", :class=>"sr-only"}
+    %div{:id=>"navigation",:class=>"wrapper"}
+      %div{:class=>"navbar-static-top"}
+        %div{:class=>"header-hidden"}
+          = render partial: 'layouts/hiddenheader'
+        %div{:class=>"header-upper"}
+          = render partial: 'layouts/headerupper'
+        /= %div{:class=>"header-search"}
+        -# = render partial: 'layouts/headersearch'
+        %div{:class=>"header", :"data-toggle"=>"clingify"}
+          = render partial: 'layouts/headerbranding'
+          %div{:class=>"row"}
+            %div{:class=>"col-sm-4"}
+            %div{:class=>"col-sm-4"}
+              - case controller_name
+                - when "principal"
+                  = bootstrap_flash
+    = yield
+    %script{:src=>"https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"}
+    %script{:src=>"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"}
+    %script{:src=>"#{root_url}js/script.js"}
+    %div{:id=>"content-below",:class=>"wrapper"}
+      = render partial: 'layouts/content_below'
+    %footer{:id=>"footer"}
+      %div{:class=>"container"}
+        = render partial: 'layouts/footer'
+    %div{:class=>"hidden-elements, jpanel-menu-exclude"}
+      = render partial: 'layouts/hiddenelements/signupmodal'
+      = render partial: 'layouts/hiddenelements/loginmodal'
+      = render partial: 'layouts/hiddenelements/termosmodal'

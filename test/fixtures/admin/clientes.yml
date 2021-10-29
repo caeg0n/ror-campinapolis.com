@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  admin_categoria: one
+  admin_plano: one
+  nome: MyString
+  slogan: MyString
+  telefone: MyString
+  endereco: MyString
+
+two:
+  admin_categoria: two
+  admin_plano: two
+  nome: MyString
+  slogan: MyString
+  telefone: MyString
+  endereco: MyString

@@ -1,0 +1,58 @@
+<%-# render partial: "form" -%>
+<!-- ======== @Region: #content ======== -->
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <!-- sidebar -->
+      <div class="col-md-3 sidebar">
+        <!-- Sections Menu-->
+        <%= render partial: "menu" %>
+      <!--main content-->
+      <div class="col-md-9">
+        <h2 class="title-divider">
+          <span>Contato </span>
+          <small>Estamos a sua disposição</small>
+        </h2>
+        <div class="row">
+          <div class="col-md-6">
+          <%= render partial: "form" %>
+              <!-- <form id="contact-form" action="/envia_contato" method="post" remote-data="true"> -->
+              <!-- <div class="form-group">
+              <label class="sr-only" for="contact-name">Nome</label>
+              <input type="text" class="form-control" id="contact-name" placeholder="Nome">
+              </div>
+              <div class="form-group"> -->
+              <!-- <label class="sr-only" for="contact-email">Email</label>
+              <input type="email" class="form-control" id="contact-email" placeholder="Email">
+              </div>
+              <div class="form-group">
+              <label class="sr-only" for="contact-message">Menssagem</label>
+              <textarea rows="12" class="form-control" id="contact-message" placeholder="Menssagem"></textarea>
+              </div>
+              <input type="button" class="btn btn-primary" value="Enviar Menssagem" onchange="$(this).closest('form').submit()"> -->
+              <!-- </form> -->
+          </div>
+          <div class="col-md-6">
+            <p>
+              <abbr title="Phone"><i class="fa fa-phone"></i></abbr>
+              (66) 98145 30 92
+            </p>
+            <p>
+              <abbr title="Email"><i class="fa fa-envelope"></i></abbr>
+              contato@campinapolis.com
+            </p>
+            <p>
+              <abbr title="Address"><i class="fa fa-home"></i></abbr>
+              Avenida Alves Ferreira 500, Campinápolis-MT. CENTRO
+            </p>
+            <p>
+              <a href="https://www.google.com.br/maps/@-14.5395915,-52.7978564,17z">
+                <img src="img/misc/map.png" alt="Location map" class="img-thumbnail" />
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

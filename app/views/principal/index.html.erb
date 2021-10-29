@@ -1,0 +1,22 @@
+<!-- ======== @Region: #highlighted ======== -->
+<div id="highlighted">
+  <%= render partial: 'layouts/highlighted' %>
+</div>
+<!-- ======== @Region: #content ======== -->
+<div id="content">
+  <div class="container">
+    <!-- Services -->
+    <div class="block features">
+      <%= render partial: 'features' %>
+    </div>
+    <!--Pricing Table-->
+    <div class="block">
+      <%-# Ahoy::Visit.group(:country).count %>
+      <%= render partial: 'prices' %>
+    </div>
+    <!--Customer testimonial-->
+    <div class="block testimonials margin-top-large">
+      <%-# render partial: 'testimonial' -%>
+    </div>
+  </div>
+</div>

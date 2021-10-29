@@ -1,0 +1,30 @@
+= csrf_meta_tags
+%meta{:"http-equiv" => "Content-Type", :content=>"text/html;", :charset=>"UTF-8"}
+%meta{:name=>"viewport", :content=>"width=device-width", :"initial-scale"=>"1.0"}
+%meta{:name=>"description", :content=>"comercio"}
+%meta{:name=>"author", :content=>"Carlos Eduardo"}
+%title Campinapolis.com
+%link{:href=>"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css",:rel=>"stylesheet"}
+%link{:href=>"https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css",:rel=>"stylesheet"}
+%link{:href=>"https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css", :rel=>"stylesheet"}
+%link{:href=>"https://fonts.googleapis.com/css?family=Open+Sans:400,700,300", :rel=>'stylesheet', :type=>'text/css'}
+%link{:href=>'https://fonts.googleapis.com/css?family=Rambla', :rel=>'stylesheet', :type=>'text/css'}
+%link{:href=>'https://fonts.googleapis.com/css?family=Calligraffitti', :rel=>'stylesheet', :type=>'text/css'}
+%link{:href=>"#{root_path + 'plugins/flag-icon-css/css/flag-icon.min.css'}", :rel=>"stylesheet"}
+%link{:href=>"#",:id=>"colour-scheme",:rel=>"stylesheet"}
+%link{:href=>"#{root_path + 'css/custom-style.css'}", :rel=>"stylesheet"}
+%link{:href=>"#{root_path + 'css/theme-style.css'}", :rel=>"stylesheet"}
+= render partial: 'application/favicon'
+/![if lt IE 9]
+%script{:src=>"#{root_path + 'plugins/html5shiv/dist/html5shiv.js'}"}
+%script{:src=>"#{root_path + 'plugins/respond/respond.min.js'}"}
+/![endif]
+%script{:src=>"#{root_path + 'plugins/retina/dist/retina.min.js'}"}
+%script{:src=>"/bower_components/lodash/lodash.js"}
+%script{:src=>"/bower_components/cloudinary-core/cloudinary-core.js"}
+- if controller_name == "categorias"
+  = javascript_include_tag "categorias"
+- if controller_path == "admin/recursos"
+  = javascript_include_tag "admin/recursos"
+- if controller_name == "principal"
+  = javascript_include_tag "admin/usuarios"

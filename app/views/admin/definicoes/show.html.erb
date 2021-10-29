@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Admin plano:</strong>
+  <%= @admin_definicao.admin_plano %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @admin_definicao.desc %>
+</p>
+<h2>definições</h2>
+<div id="Definicoes">
+  <%= render :partial => @admin_plano.admin_definicoes.reverse %>
+</div>
+
+
+<%= link_to 'Edit', edit_admin_definicao_path(@admin_definicao) %> |
+<%= link_to 'Back', admin_definicoes_path %>

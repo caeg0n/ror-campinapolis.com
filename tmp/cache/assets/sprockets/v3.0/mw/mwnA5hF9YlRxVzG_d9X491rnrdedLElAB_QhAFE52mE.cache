@@ -1,0 +1,7 @@
+I"e(function() {
+  $(window).load(function() {
+    return click_categoria();
+  });
+
+}).call(this);
+:ET

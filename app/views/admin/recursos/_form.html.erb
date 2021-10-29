@@ -1,0 +1,15 @@
+<%= simple_form_for @admin_recurso, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :titulo %>
+  <%= f.input :desc %>
+  <%= f.input :mini_desc %>
+  <%= f.input :complete_desc %>
+  <%= f.input :img, as: :select,collection:@images %>
+  <div class="row">
+    <%= image_tag("",id: "img",width:"auto",height:"150px","max-width":"150px") %>
+  </div>
+</br>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_recursos_path, :class => 'btn btn-default' %>
+<% end %>

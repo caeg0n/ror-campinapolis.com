@@ -1,0 +1,34 @@
+<!-- ======== @Region: #content ======== -->
+<div id="content">
+  <div class="container">
+    <!-- Services -->
+    <div class="block features">
+      <h2 class="title-divider">
+        <span>Recursos <span class="de-em">Principais</span></span>
+        <small>Recursos pricipais incluidos em todos os planos.</small>
+      </h2>
+      <div class="row list-unstyled">
+        <%= render partial: "list_unstyled", locals:{recursos: @recursos} %>
+      </div>
+      <div class="row">
+        <!-- Secondary features -->
+        <div class="col-md-9">
+          <h3 class="title-divider">
+            <span>Detalhes do <span class="de-em">Recurso</span></span>
+            <!-- <small>Recursos extras que podem ser incluido no seu plano.</small> -->
+          </h3>
+          <div class="tabbable tabs-left vertical-tabs bold-tabs row">
+            <ul class="nav nav-tabs nav-stacked col-sm-4 col-md-4">
+              <%= render partial: "menu_lateral", locals: { id: @id, recursos: @recursos } %>
+            </ul>
+            <div class="tab-content col-sm-8 col-md-8">
+              <%= render partial: "features_tab_content.html.erb" ,locals: {id: @id, recursos: @recursos } %>
+            </div>
+          </div>
+        </div>
+        <!--Contact block-->
+        <%= render partial: "contact_block" %>
+      </div>
+    </div>
+  </div>
+</div>

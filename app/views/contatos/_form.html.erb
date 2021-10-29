@@ -1,0 +1,25 @@
+<% input_html_form = {id: "contact-form"} %>
+<% input_html_form[:class] = 'special' %>
+<% input_html_nome = {id: 'contact-name'} %>
+<% input_html_nome[:placeholder] = "Nome" %>
+<% input_html_mail = {placeholder: "e-mail"} %>
+<% input_html_mensagem = {rows: "12"}%>
+<%= simple_form_for(@contato,input_html: input_html_form) do |f| %>
+  <% flash.each do |key, value| %>
+    <div class="<%= flash_message(key) %>">
+      <%= value %>
+    </div>
+  <% end %>
+  <%= f.error_notification %>
+  <div class="form-group">
+    <div class="form-inputs">
+      <%= f.input :nome,input_html: input_html_nome %>
+      <%= f.input :mail,input_html: input_html_mail %>
+      <%= f.input :mensagem,input_html: input_html_mensagem %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary",value: "Enviar Menssagem" %>
+  </div>
+<% end %>
+

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @admin_plano.nome %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @admin_plano.valor %>
+</p>
+
+<h2>Comments</h2>
+<div id="Comments">
+  <%= render :partial => @admin_plano.admin_definicoes.reverse %>
+</div>
+
+
+<%= link_to 'Edit', edit_admin_plano_path(@admin_plano) %> |
+<%= link_to 'Back', admin_planos_path %>

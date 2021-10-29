@@ -1,0 +1,46 @@
+<!-- ======== @Region: #content ======== -->
+<div id="content">
+  <div class="container">
+    <!-- Login form -->
+    <% @admin_cliente = Admin::Cliente.new %>
+    <%= simple_form_for @admin_cliente, url: login_path, html: { class: "form-login form-wrapper form-narrow"}  do |f| %>
+    <!-- <form class="form-login form-wrapper form-narrow"> -->
+      <h3 class="title-divider">
+        <span>Painel de Controle</span>
+        <!-- <small>Ainda não é cliente? <a href="pricing.htm">Assine um de nossos Planos</a>.</small> -->
+      </h3>
+      <div class="form-group">
+        <%# if flash_message.html_safe.empty? == false %>
+          <div class = "alert alert-danger">
+            <% flash.each do |key, value| %>
+              <div class="<%= flash_message(key) %>">
+              <%= value %>
+              </div>
+            <% end %>
+          <%= f.error_notification %>
+           <%# flash_message.html_safe %>
+         </div>
+        <%# end %>
+        <label class="sr-only" for="login_username">Nome de Usuário</label>
+        <input type="username" name="login[username]" id="login_username" class="form-control" placeholder="Nome de Usuário">
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="login-password">Senha</label>
+        <input type="password" name="login[password]" id="login-password" class="form-control password" placeholder="Senha">
+      </div>
+      <button type="submit" class="btn btn-primary" value="Submit">Entrar</button>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <!-- | <a href="#">Esqueceu sua Senha?</a> -->
+    <% end %>
+    <!-- </form> -->
+  </div>
+</div>
+
+<!-- ======== @Region: #content-below ======== -->
+<div id="content-below" class="wrapper">
+  <div class="container">
+    <div class="row">
+    </div>
+  </div>
+</div>
+<!-- FOOTER -->

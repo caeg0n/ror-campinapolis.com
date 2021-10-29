@@ -1,0 +1,28 @@
+<!-- ======== @Region: #content ======== -->
+<div id="content">
+  <div class="container" id="about">
+    <div class="row">
+      <!-- sidebar -->
+      <%= render partial: "sidebar" %>
+      <!--main content-->
+      <div class="col-md-9">
+        <h2 class="title-divider">
+          <span>Sobre <span class="de-em">Nós</span></span>
+          <small>O Que e Quem faz o nosso site!</small>
+        </h2>
+        <!-- Showshow - Slider Revolution see: plugins/slider-revolution/examples for help -->
+        <%= render partial: "slider" %>
+        <!-- About company -->
+        <%= render partial: "about" %>
+        <!-- valores -->
+        <%= render partial: "valores" %>
+        <!-- Timeline -->
+        <%-# render partial: "timeline" -%>
+        <!-- Team -->
+        <%= render partial: "time" %>
+        <!-- Customer logos -->
+        <%-# render partial: "costumer" %>
+      </div>
+    </div>
+  </div>
+</div>

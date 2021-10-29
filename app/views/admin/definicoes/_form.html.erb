@@ -1,0 +1,12 @@
+<%= simple_form_for @admin_definicao,url: admin_plano_definicoes_path do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :admin_plano,value_method: :id, label_method: :nome %>
+    <%= f.input :desc %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

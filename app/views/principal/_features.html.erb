@@ -1,0 +1,20 @@
+<h2 class="title-divider">
+  <span>Nossas <span class="de-em"> Características</span></span>
+  <small>Confira nossos recursos e características de cada plano.</small>
+</h2>
+<div class="row">
+  <% @recursos.each do |recurso| %>
+    <div class="feature col-sm-6 col-md-3">
+      <!-- <a href="<%# recursos_path %>/<%# recurso.id %>"> -->
+        <% img = recurso.img %>
+        <img src="<%= image_path(img) %>" alt="caracteristicas" class="img-responsive" />
+      <!-- </a> -->
+      <h3 class="title">
+        <!-- <a href="<%# recursos_path %>/<%# recurso.id %>"><%# recurso.titulo.titleize %></span></a> -->
+        <%= recurso.titulo.titleize %>
+      </h3>
+      <p><%= recurso.desc.titleize %></p>
+    </div>
+  <% end %>
+</div>
+<!-- <span class="de-em"> -->

@@ -1,0 +1,2 @@
+module TipoalphaHelper
+end

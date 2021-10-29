@@ -1,0 +1,6 @@
+function setupImg(dropDown,image){
+  $(dropDown).change(function(){
+    var val = $(dropDown).val();
+    $(image).attr("src",val);
+  });
+}

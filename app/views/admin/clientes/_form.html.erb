@@ -1,0 +1,44 @@
+<%= simple_form_for @admin_cliente,:html => { :class => 'form-vertical' } do |f| %>
+  <%= f.error_notification %>
+  <%= f.association :admin_categoria, value_method: :id, label_method: :nome %>
+  <%= f.association :admin_plano, value_method: :id, label_method: :nome %>
+  <%= f.association :admin_cliente_status, value_method: :id, label_method: :descricao %>
+  <%= f.input :empresa %>
+  <%= f.input :proprietario %>
+  <%-# f.input :username, label: "Nome de Usuário", hint: false %>
+  <%-# f.input :password, hint: false %>
+  <%-# input = "http://via.placeholder.com/350x150?text=?????" %>
+  <%
+    if action_name != 'edit' then
+      input = "https://imgplaceholder.com/400x120/9dc4aa/1d1c1c?text=?+?&font-size=29"
+    else
+      input = @admin_cliente.imagem
+    end
+  %>
+  <%= f.input :url %>
+  <%= f.input :imagem,input_html: {value: input} %>
+  <%= f.input :slogan %>
+  <%= f.input :telefone %>
+  <%= f.input :endereco %>
+  <%
+    if action_name != 'edit' then
+      checked = true
+    else
+      if @admin_cliente.visibility_status == nil or @admin_cliente.visibility_status == true then
+        checked = true
+      else
+        checked = false
+      end
+    end
+  %>
+  <% if checked == true %>
+    <%= f.input :visibility_status,label:"visivel",input_html:{checked:"checked"} %>
+  <% else %>
+    <%= f.input :visibility_status,label:"visivel" %>
+  <% end %>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_clientes_path, :class => 'btn btn-default' %>
+<% end %>
+</br>
+</br>

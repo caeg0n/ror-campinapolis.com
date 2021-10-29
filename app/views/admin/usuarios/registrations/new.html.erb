@@ -1,0 +1,29 @@
+</br>
+<!-- <h2>Registrar Usuário</h2> -->
+<%= simple_form_for(resource, as: resource_name, url: "/admin",html: { class: "form-login form-wrapper form-narrow"}) do |f| %>
+<h3 class="title-divider">
+  <span>Registrar Usuário</span>
+  <!-- <small>Ainda não é cliente? <a href="pricing.htm">Assine um de nossos Planos</a>.</small> -->
+</h3>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%-# f.association :admin_categoria, required: true, autofocus: true %>
+    <%-# f.input :nome, required: true, autofocus: true %>
+    <%-# f.input :img_url, required: true, autofocus: true %>
+    <%-# f.input :telefone, required: true, autofocus: true %>
+    <%-# f.input :endereco, required: true, autofocus: true %>
+    <%-# f.input :slogan, required: true, autofocus: true %>
+    <%= f.association :admin_cliente, required: false, value_method: :id, label_method: :empresa %>
+    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+    <%= f.input :password_confirmation, required: true %>
+    <%= f.input :administration_level, required: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Registrar" %>
+  </div>
+<% end %>
+
+<%= render "admin/usuarios/shared/links" %>

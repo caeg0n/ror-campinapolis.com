@@ -1,0 +1,13 @@
+source 'https://rubygems.org'
+gemspec
+# gem 'byebug', group: [:development, :test]
+gem 'pg','~>0.18'
+gem 'coffee-rails', '~> 4.2'
+gem 'sass-rails', '~> 5.0'
+gem 'devise'
+gem 'spree', '~> 3.2.7'
+gem 'spree_auth_devise', '~> 3.3'
+gem 'spree_gateway', '~> 3.3'
+gem 'spree_i18n', github: 'spree-contrib/spree_i18n'
+gem 'sprockets-helpers', '~> 1.2.1'
+gem 'vinsol_spree_themes', github: 'vinsol-spree-contrib/spree_themes', branch: '3-2-stable'

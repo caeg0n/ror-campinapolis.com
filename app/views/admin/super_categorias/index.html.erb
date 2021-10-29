@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Super Categorias</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descricao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_super_categorias.each do |admin_super_categoria| %>
+      <tr>
+        <td><%= admin_super_categoria.descricao %></td>
+        <td><%= link_to 'Show', admin_super_categoria %></td>
+        <td><%= link_to 'Edit', edit_admin_super_categoria_path(admin_super_categoria) %></td>
+        <td><%= link_to 'Destroy', admin_super_categoria, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Super Categoria', new_admin_super_categoria_path %>

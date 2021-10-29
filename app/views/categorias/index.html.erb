@@ -1,0 +1,41 @@
+<div id="content">
+  <div class="container">
+    <h2 class="title-divider">
+      <span>Nossos <span class="de-em">Clientes</span></span>
+      <small>Assine já e promova seu negócio!</small>
+    </h2>
+    <div class="col-md-6">
+      <ul class="nav nav-tabs" data-js="quicksand" data-quicksand-trigger="li >
+        a" data-quicksand-target=".customers">
+        <li class="active"><a href="#" data-quicksand-fid="all">Todos os Clientes</a></li>
+        <% if defined?(@categorias_paginados) %>
+        <% if @categorias_paginados.count > 0 %>
+        <% @categorias_paginados.each do |categoria| %>
+        <li><a href="#" data-quicksand-fid="type-<%= categoria.nome.downcase %>"><%= categoria.nome.titleize %></a></li>
+        <% end %>
+        <% end %>
+        <% end %>
+      </ul>
+      <div class="pagination pagination-lg" style="text-align: center">
+          <%= will_paginate @categorias_paginados,:previous_label => '<<  ', :next_label => '  >>',:container => false, :page_links => true %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h2 class="title-divider">
+        <span>Nossos Clientes <span class="de-em">Parceiros</span></span>
+      </h2>
+      <a href="https://motohostelroncador.com.br">
+        <%= cl_image_tag("motohostel_vxntal", width: :auto,responsive_placeholder: :blank,quality: :auto,fetchFormat: :auto, crop: :scale) %>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <%= render partial: "clientes" %>
+  </div>
+</div>
+<script type="text/javascript">
+var cl = cloudinary.Cloudinary.new( { cloud_name: "campinapolis-com"});
+cl.responsive();
+</script> 

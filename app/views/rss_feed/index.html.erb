@@ -1,0 +1,65 @@
+<%
+thumb = SiteThumbnail.where(site_id:@cliente.id).last
+if !thumb.blank?
+  #a = '<img class="js-image-replace" alt="campinapolis.com" src='.html_safe
+  a = cl_image_tag(thumb.image.key, quality: "auto",fetchFormat: "auto", crop: "scale")
+  #@cliente.url.gsub!('https','http')
+  #a += 'width="976" height="549" data-highest-encountered-width="660">'.html_safe
+end
+%>
+<%= a %>
+<%
+if thumb.blank?
+  a = 'https://api.thumbnail.ws/api/ab990128ef597b3b50f93afbe9c52a1f3a0bb6814e38/thumbnail/get?url='+@cliente.url.gsub!('https','http')+'/&width=976&height=549&delay=5000'
+  downloaded_image = open(a)
+  b = SiteThumbnail.new
+  b.site_id = @cliente.id
+  b.image.attach(io: downloaded_image  , filename: @cliente.id,content_type: "image/jpg")
+  b.save
+end
+%>
+<% if defined?(@cliente) %>
+  <% cliente = @cliente %>
+    <% if (not cliente.admin_categoria_id.nil?) &&  (not cliente.admin_plano_id.nil?) then %>
+      <% costumer_type = "type-#{Admin::Categoria.find(cliente.admin_categoria_id).nome.downcase}" %>
+      <% data_quicksand_id = cliente.id %>
+      <% data_quicksand_tid = "type-#{Admin::Categoria.find(cliente.admin_categoria_id).nome.downcase}" %>
+      <% img_src = "#{cliente.imagem}" %>
+      <% alt = "#{cliente.empresa}" %>
+      <% title = "#{cliente.empresa}" %>
+      <% description = "#{cliente.slogan}" %>
+      <% status = "#{cliente.empresa_status}" %>
+      <% url = "#{cliente.url}" %>   
+      <% telefone = "#{cliente.telefone}" %>
+      <% endereco = "#{cliente.endereco}" %>
+      <% href = "/" %>
+      <% if url["http"] == "http" || url["https"] == "https" then %>
+        <% img_src = url %>
+        <% if status == "on line" %>
+          <% img_src =  Cloudinary::Utils.cloudinary_url(img_src, :gravity=>"north", :height=>90, :width=>300, :crop=>"fill", :sign_url=>true, :type=>"url2png") %>
+        <% end %>
+      <% end %>
+      <ul class="row list-unstyled block customers">
+        <li class="customer <%= costumer_type %>" data-quicksand-id="id-<%= data_quicksand_id %>" data-quicksand-tid="<%= data_quicksand_tid %>">
+        <a href="">
+        <span class="inner-wrapper">
+        <span class="img-wrapper">
+        <img src="<%= img_src %>" alt="<%= alt %>" class="img-responsive" />
+        </span>
+        <span class="title"><%= title.upcase unless title.nil? %></span>
+        <span class="description"><%= description.upcase unless description.nil? %></span>
+        <span class="description">Telefone: <%= telefone %></span>
+        <span class="description">Endereço: <%= endereco.downcase unless endereco.nil? %></span>
+        <% if status == "nao contratado".titleize  then color="red" end %>
+        <% if status == "em manutencao".titleize  then color="orange" end %>
+        <% if status == "on line".titleize  then color="green" end %>
+        <% if status == "desativado temporariamente".titleize  then color="orange" end %>
+        <% if status == "em negociacao".titleize  then color="blue" end %>
+        <% if status == "em desenvolvimento".titleize  then color="green" end %>
+        <span class="description"><b>Site:</b> <b style="color:<%= color %>">-- <%= status %> --</b></span>
+        </span>
+        </a>
+        </li>
+      </ul>
+    <% end %>
+<% end %>

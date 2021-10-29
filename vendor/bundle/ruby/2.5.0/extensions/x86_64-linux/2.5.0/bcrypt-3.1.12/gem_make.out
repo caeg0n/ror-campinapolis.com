@@ -1,0 +1,19 @@
+current directory: /tmp/build_dd2f630ae90551337d49b75085fc2c0a/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+/tmp/build_dd2f630ae90551337d49b75085fc2c0a/vendor/ruby-2.5.0/bin/ruby -r ./siteconf20190316-264-1d0pubo.rb extconf.rb
+creating Makefile
+
+current directory: /tmp/build_dd2f630ae90551337d49b75085fc2c0a/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR=" clean
+
+current directory: /tmp/build_dd2f630ae90551337d49b75085fc2c0a/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR="
+compiling bcrypt_ext.c
+compiling crypt.c
+compiling crypt_blowfish.c
+compiling crypt_gensalt.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.so
+
+current directory: /tmp/build_dd2f630ae90551337d49b75085fc2c0a/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20190316-264-wjxhqv

@@ -1,0 +1,13 @@
+<% recursos.each do |recurso| %>
+  <% if id == recurso.id %>
+    <li class="active">
+  <% else %>
+    <li>
+  <% end %>
+      <a href="#tab<%= recurso.id %>" data-toggle="tab">
+        <%= recurso.titulo.titleize %>
+        <small><%= recurso.mini_desc %></small>
+        <i class="fa fa-angle-right"></i>
+      </a>
+    </li>
+<% end %>

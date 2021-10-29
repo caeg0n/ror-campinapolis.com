@@ -1,0 +1,22 @@
+current directory: /tmp/build_dd2f630ae90551337d49b75085fc2c0a/vendor/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.5/ext/unf_ext
+/tmp/build_dd2f630ae90551337d49b75085fc2c0a/vendor/ruby-2.5.0/bin/ruby -r ./siteconf20190316-264-y02j0i.rb extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: /tmp/build_dd2f630ae90551337d49b75085fc2c0a/vendor/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.5/ext/unf_ext
+make "DESTDIR=" clean
+
+current directory: /tmp/build_dd2f630ae90551337d49b75085fc2c0a/vendor/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.5/ext/unf_ext
+make "DESTDIR="
+compiling unf.cc
+cc1plus: warning: command line option ‘-Wimplicit-int’ is valid for C/ObjC but not for C++
+cc1plus: warning: command line option ‘-Wdeclaration-after-statement’ is valid for C/ObjC but not for C++
+cc1plus: warning: command line option ‘-Wimplicit-function-declaration’ is valid for C/ObjC but not for C++
+cc1plus: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1plus: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1plus: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+linking shared-object unf_ext.so
+
+current directory: /tmp/build_dd2f630ae90551337d49b75085fc2c0a/vendor/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.5/ext/unf_ext
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 unf_ext.so ./.gem.20190316-264-rci04f

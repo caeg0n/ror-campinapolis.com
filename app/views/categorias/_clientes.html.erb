@@ -1,0 +1,73 @@
+<% if defined?(@clientes) %>
+<% if @clientes.count > 0 %>
+<!--Customers-->
+<ul class="row list-unstyled block customers">
+  <% cont = 0 %>
+  <% @clientes.each do |cliente| %>
+  <% if (not cliente.admin_categoria_id.nil?) && (not cliente.admin_plano_id.nil?) then %>
+  <% costumer_type = "type-#{Admin::Categoria.find(cliente.admin_categoria_id).nome.downcase}" %>
+  <% data_quicksand_id = cliente.id %>
+  <% data_quicksand_tid = "type-#{Admin::Categoria.find(cliente.admin_categoria_id).nome.downcase}" %>
+  <% alt = "#{cliente.empresa}" %>
+  <% title = "#{cliente.empresa}" %>
+  <% description = "#{cliente.slogan}" %>
+  <% status = cliente.empresa_status %>
+  <% telefone = "#{cliente.telefone}" %>
+  <% endereco = "#{cliente.endereco}" %>
+  <% thumb_url = "#{cliente.thumb_url}" %>
+  <% url = "#{cliente.url}" %>
+  <% img_src = "#{cliente.imagem}" %>
+  <% thumb_img = cliente.enum_img %>
+  <% end %>
+  <li class="customer <%= costumer_type %>" data-quicksand-id="id-<%= data_quicksand_id %>" data-quicksand-tid="<%= data_quicksand_tid %>">
+    <% if status == "off line" %>
+    <a href="<%= url %>" data-toggle="tooltip" title="site desativado">
+      <% else %>
+      <a href="<%= url %>">
+        <% end %>
+        <span class="inner-wrapper">
+          <span class="img-wrapper">
+            <%=
+            if !thumb_img.blank?
+              resp = url if thumb_img.include?("site")
+              resp = thumb_url if thumb_img.include?("cloudinary")
+              resp = "" if thumb_img.include?("nenhuma")
+              resp = img_src if thumb_img.include?("placeholder")
+              if status.include?("on line") && !thumb_img.include?("placeholder")
+                ret = cl_image_tag(resp, :gravity=>"north", :height=>90, :width=>300,quality: "auto",fetchFormat: "auto", :crop=>"fill",:sign_url=>true, :type=>"url2png")
+              end
+              if status.include?("off line") && !thumb_img.include?("placeholder")
+                ret = cl_image_tag(resp, :gravity=>"north",:effect=>"grayscale", :height=>90, :width=>300,quality: "auto",fetchFormat:"auto", :crop=>"fill", :sign_url=>true, :type=>"url2png")
+              end
+              if status.include?("on line") && thumb_img.include?("placeholder")
+                ret = cl_image_tag(resp, :gravity=>"north", :height=>90, :width=>300,quality: "auto",fetchFormat: "auto",:crop=>"fill")
+              end
+              if !status.include?("on line") && !status.include?("off line") && thumb_img.include?("placeholder")
+                ret = cl_image_tag(resp, :gravity=>"north", :height=>90, :width=>300,quality: "auto",fetchFormat: "auto",:crop=>"fill")
+              end
+            end  
+            ret.html_safe unless ret.blank? 
+            %> 
+          </span>
+          <% if status.include?("on line") %>
+          <span class="title"><%= title.upcase unless title.nil? %></span>
+          <% else %>
+          <span class="title" style="color:gray"><%= title.upcase unless title.nil? %></span>
+          <% end %>
+          <span class="description"><%= description.upcase unless description.nil? %></span>
+          <span class="description">Telefone: <%= telefone %></span>
+          <span class="description">Endereço: <%= endereco.downcase unless endereco.nil? %></span>
+          <% if status == "não Contratado"  then color="rgba(27, 27, 27, 0.8);" end %>
+          <% if status == "em manutenção"  then color="rgba(27, 27, 27, 0.8);" end %>
+          <% if status == "on line"  then color="#55a79a" end %>
+          <% if status == "desativado temporariamente" then color="rgba(27, 27, 27, 0.8);" end %>
+          <% if status == "em negociação" then color="rgba(27, 27, 27, 0.8);" end %>
+          <% if status == "em desenvolvimento" then color="#55a79a" end %>
+          <span class="description"><b>Site:</b> <b style="color:<%= color %>">-- <%= status %> --</b></span>
+        </span>
+      </a>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+  <% end %>

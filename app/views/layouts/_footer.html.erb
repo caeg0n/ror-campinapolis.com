@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col-md-3 col">
+    <div class="block contact-block">
+      <!--@todo: replace with company contact details-->
+      <h3>
+        Contato
+      </h3>
+      <address>
+        <ul class="fa-ul">
+          <li>
+            <abbr title="Phone"><i class="fa fa-li fa-phone"></i></abbr>
+            (66) 98136-9818
+          </li>
+          <li>
+            <abbr title="Email"><i class="fa fa-li fa-envelope"></i></abbr>
+            contato@campinapolis.com
+          </li>
+          <li>
+            <abbr title="Address"><i class="fa fa-li fa-home"></i></abbr>
+            Avenida Alves Ferreira 1498, Campinápolis-MT. CENTRO.
+          </li>
+        </ul>
+      </address>
+    </div>
+  </div>
+
+  <div class="col-md-5 col">
+    <div class="block">
+      <h3>
+        Quem Somos nós
+      </h3>
+      <p>Colocamos o seu comércio na internet! Ajudamos você a estar em contato com os seus clientes!</p>
+    </div>
+  </div>
+
+  <div class="col-md-4 col">
+    <div class="block newsletter">
+      <h3>
+        Informativo
+      </h3>
+      <p>Receba informações no seu e-mail, assine nosso boletim.</p>
+      <!--@todo: replace with mailchimp code-->
+      <!-- <form role="form"> -->
+          <% flash.each do |key, value| %>
+          <div class="<%= flash_message(key) %>">
+            <%= value %>
+          </div>
+        <% end %>
+      <%= simple_form_for(Informativo.new) do |f| %>
+
+       <div class="input-group input-group-sm">
+        <label class="sr-only" for="email-field">Email</label>
+          <%= f.input :mail,label:false, input_html:{type:"text",
+                                         class:"form-control",
+                                         id:"email-field",
+                                         placeholder:"Email",
+                                         style: 'width: 300px'} %>
+          <span class="input-group-btn">
+          <%= f.button :submit,"Enviar!", class:"btn btn-primary",type:"submit" %>
+        </span>
+        </div>
+      <% end %>
+      <!-- </form> -->
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div id="toplink">
+    <a href="#top" class="top-link" title="Back to top">Voltar para o Topo <i class="fa fa-chevron-up"></i></a>
+  </div>
+  <!--@todo: replace with company copyright details-->
+  <div class="subfooter">
+    <div class="col-md-6">
+      <p>Desenvolvido por Campinapolis PontoCom</a> | 2018 &copy; Campinapolis PontoCom</p>
+    </div>
+    <div class="col-md-6">
+      <ul class="list-inline footer-menu">
+        <li><a href="#termos-modal" data-toggle="modal">Termos</a></li>
+        <!-- <li><a href="#">Privacidade</a></li> -->
+        <li><a href="/contatos">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
